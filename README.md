@@ -12,5 +12,5 @@ Built using CSS States for functionality
 
 At this stage, the task app opens a blank window and the welcome screen is functional
 
-###### Built for [HackClub Terra](terra.hackclub.com)
+###### Built for HackClub Terra
 
