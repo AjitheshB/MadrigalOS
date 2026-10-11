@@ -1,13 +1,68 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>madrigalos</title>
+    <title>MadrigalOS</title>
+    
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+
+    <!-- Intro and welcome screen-->
+     <div class="intro">
+      <h1>MadrigalOS</h1>
+      <p class="enter">Click to enter</p>
+     </div>
+
+    <!--Desktop text-->
+    <div class="welcome-text">
+      <h1>MadrigalOS</h1>
+      <p>Productivity peaking time?</p>
+    </div>
+
+    <!--Bottom dock-->
+    <div class="dock">
+      <div class="dock-item">
+        <i data-lucide="square-terminal"></i>
+      </div>
+      
+      <div class="dock-item tasks">
+        <i data-lucide="list-checks"></i>
+      </div>
+      
+      <div class="dock-item">
+        <i data-lucide="calendar-days"></i>
+      </div>
+
+      <div class="dock-item">
+        <i data-lucide="folder"></i>
+      </div>
+
+      <div class="dock-item">
+        <i data-lucide="settings"></i>
+      </div>
+    </div>
+
+    <!--Tasks app-->
+    <div class="app tasks">
+      <div class="app-head">
+        <h1>Tasks</h1>
+        <i data-lucide="x" class="close"></i>
+      </div>
+
+      <div class="task-list">
+        <!--tasks-->
+      </div>
+    </div>
+
+    <button class="addtask">+ Add Task</button>
+
+    <!--App icon library!-->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!--Javascript-->
+    <script src="script.js"></script>
+
   </body>
 </html>

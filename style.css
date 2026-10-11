@@ -37,6 +37,8 @@ body {
     position:absolute;
 
     transition:transform 0.2s ease, opacity 0.1s ease;
+
+    z-index:100;
 }
 
 .intro:hover {
@@ -97,6 +99,7 @@ body {
     border-radius:18px;
     width:275px;
     text-align:center;
+    z-index:1;
 }
 
 .welcome-text:hover {
@@ -116,6 +119,7 @@ body {
     border-radius:18px;
     opacity:0;
     pointer-events:none;
+    z-index:20;
 
     text-align:center;
     font-family:"Poppins", sans-serif;
@@ -150,7 +154,7 @@ body {
     background:rgba(51,51,51,0.4);
     position:fixed;
     bottom:20px;
-    left:250px;
+    left:50%;
     
     font-family: "Poppins", sans-serif;
     color: #ffffff;
@@ -158,6 +162,8 @@ body {
     border-radius:18px;
     transform:scale(1.2);
     padding:8px;
+    opacity:0;
+    pointer-events:none;
 
     transition:background 0.2s ease, transform 0.2s ease;
 }
@@ -166,6 +172,8 @@ body {
     background:rgba(255,255,255,0.2);
     transform:scale(1.25);
 }
+
+
 
 /* States */
 
@@ -192,4 +200,9 @@ body {
     text-align:center;
     transform:translate(-60%,-50%) scale(1.0);
     justify-content:center;
+}
+
+.app.entered .addtask {
+    opacity:1;
+    pointer-events:auto;
 }
