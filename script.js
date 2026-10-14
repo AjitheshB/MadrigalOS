@@ -10,7 +10,13 @@ const taskList = document.querySelector(".task-list")
 const addTask = document.querySelector(".addtask")
 const tasksList = document.querySelector(".task-list")
 const addButton = document.querySelector(".addtask")
+const taskInput = document.querySelector(".task-input")
+const taskClear = document.querySelector(".cleartasks")
 
+const addTaskModel = document.querySelector(".addtask-model")
+const openAddTask = document.querySelector(".addtask")
+const saveAddTask = document.querySelector(".task-save")
+const cancelAddTask = document.querySelector(".task-cancel")
 
 intro.addEventListener("click",function() {
     intro.style.display = "none"
@@ -33,8 +39,45 @@ close.addEventListener("click", function() {
     app.classList.remove("entered")
 })
 
-addButton.addEventListener("click", function() {
+// Tasks App
+
+openAddTask.addEventListener("click", () => {
+    addTaskModel.classList.add("open")
+})
+
+cancelAddTask.addEventListener("click", () => {
+    addTaskModel.classList.remove("open")
+})
+
+saveAddTask.addEventListener("click", () => {
+    const taskName = taskInput.value.trim()
+
+    if(taskInput.value.trim() === "") return;
+
     const taskitem = document.createElement("div")
-    taskitem.textContent = "homework"
+    taskitem.classList.add("task-row")
+
+    const check = document.createElement("i")
+    check.setAttribute("data-lucide", "circle")
+    check.classList.add("check")
+
+    const taskText = document.createElement("span")
+    taskText.textContent = taskName
+
+    const deleteIcon = document.createElement("i")
+    deleteIcon.setAttribute("data-lucide", "trash-2")
+    deleteIcon.classList.add("deleteicon")
+
+    taskitem.append(check, taskText, deleteIcon)
     taskList.appendChild(taskitem)
+
+    lucide.createIcons();
+
+    taskInput.value = ""    
+
+    addTaskModel.classList.remove("open")
+})
+
+taskClear.addEventListener("click", () => {
+    taskList.innerHTML = ""
 })

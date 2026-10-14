@@ -54,9 +54,33 @@
       <div class="task-list">
         <!--tasks-->
       </div>
+
+      <button class="addtask">+ Add Task</button>
+      <button class="cleartasks" type="button">
+        <i data-lucide="brush-cleaning" class="cleartasks"></i>
+      </button>
+
+      <div class="addtask-model">
+        <div class="addtask-modelcard">
+          <h2>New Task</h2>
+          
+          <input type="text" placeholder="What do you want to do?" class="task-input">
+
+          <div class="addtask-modelactions">
+            <div class="taskapp-buttons">
+              <button class="task-cancel" type="button">
+                <i data-lucide="undo-2"></i>
+              </button>
+              <button class="task-save" type="button">
+                <i data-lucide="check-check"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
 
-    <button class="addtask">+ Add Task</button>
 
     <!--App icon library!-->
     <script src="https://unpkg.com/lucide@latest"></script>
