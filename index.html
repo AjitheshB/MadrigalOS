@@ -23,11 +23,11 @@
 
     <!--Bottom dock-->
     <div class="dock">
-      <div class="dock-item">
+      <div class="dock-item" data-app="terminal">
         <i data-lucide="square-terminal"></i>
       </div>
       
-      <div class="dock-item tasks">
+      <div class="dock-item" data-app="tasks">
         <i data-lucide="list-checks"></i>
       </div>
       
@@ -45,7 +45,7 @@
     </div>
 
     <!--Tasks app-->
-    <div class="app tasks">
+    <div class="app" id="tasks">
       <div class="app-head">
         <h1>Tasks</h1>
         <button class="close">
@@ -83,6 +83,15 @@
 
     </div>
 
+    <!--Terminal App-->
+    <div class="app" id="terminal">
+      <div class="app-head">
+        <h1>Terminal</h1>
+        <button class="close">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+    </div>
 
     <!--App icon library!-->
     <script src="https://unpkg.com/lucide@latest"></script>

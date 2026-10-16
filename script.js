@@ -1,23 +1,40 @@
 lucide.createIcons();
 
+// Constants
+let topApp = null
+
 const intro = document.querySelector(".intro")
 const dock = document.querySelector(".dock")
 const wlcomtext = document.querySelector(".welcome-text")
-const tasks = document.querySelector(".dock-item.tasks")
-const app = document.querySelector(".app.tasks")
-const close = document.querySelector(".close")
+
+// Apps
+const tasks = document.querySelector('[data-app="tasks"]')
+const terminalApp= document.querySelector("#terminal")
+
+// Dock icons 
+const dockItems = document.querySelectorAll(".dock-item")
+const closeButton = document.querySelectorAll(".close")
+
+
+// Tasks app
+const app = document.querySelector("#tasks")
+
 const taskList = document.querySelector(".task-list")
 const addTask = document.querySelector(".addtask")
-const tasksList = document.querySelector(".task-list")
 const addButton = document.querySelector(".addtask")
 const taskInput = document.querySelector(".task-input")
 const taskClear = document.querySelector(".cleartasks")
-
 const addTaskModel = document.querySelector(".addtask-model")
 const openAddTask = document.querySelector(".addtask")
 const saveAddTask = document.querySelector(".task-save")
 const cancelAddTask = document.querySelector(".task-cancel")
 
+// Terminal app
+const terminal = document.querySelector('[data-app="terminal"]')
+
+
+
+// Intro
 intro.addEventListener("click",function() {
     intro.style.display = "none"
     dock.style.display = "flex"
@@ -26,18 +43,42 @@ intro.addEventListener("click",function() {
     wlcomtext.classList.add("entered")
 } )
 
+// Tasks app opener
 tasks.addEventListener("click", function() {
+    app.classList.toggle("entered")
+
     if (app.classList.contains("entered")) {
-        app.classList.remove("entered")
+        topApp = app
     } else {
-        app.classList.add("entered")
+        topApp = document.querySelector(".app.entered")
     }
+
+    appLayers()
+    }
+)
+
+// Close button
+closeButton.forEach(function(button) {
+    button.addEventListener("click", function() {
+        button.closest(".app").classList.remove("entered")
+    })
 })
 
+// Terminal app
+terminal.addEventListener("click", function() {
+    terminalApp.classList.toggle("entered")
 
-close.addEventListener("click", function() {
-    app.classList.remove("entered")
-})
+    if (terminalApp.classList.contains("entered")) {
+        topApp = terminalApp
+    } else {
+        topApp = document.querySelector(".app.entered")
+    }
+
+    appLayers()
+    
+    }
+)
+
 
 // Tasks App
 
@@ -81,3 +122,19 @@ saveAddTask.addEventListener("click", () => {
 taskClear.addEventListener("click", () => {
     taskList.innerHTML = ""
 })
+
+// App Layering
+
+function appLayers() {
+    const openApps = document.querySelectorAll(".app.entered")
+
+    openApps.forEach(function(app) {
+        app.classList.remove("behind")
+    })
+
+    openApps.forEach(function(app) {
+        if(app !== topApp) {
+            app.classList.add("behind")
+        }
+    })
+}
