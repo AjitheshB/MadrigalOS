@@ -138,3 +138,34 @@ function appLayers() {
         }
     })
 }
+
+// App Draggability
+
+const appHeads = document.querySelectorAll(".app-head")
+
+appHeads.forEach(function(header) {
+    header.addEventListener("mousedown", function(evnt) {
+        const win = header.closest(".app")
+        if (evnt.target.closest("button")) return;
+
+        const position = win.getBoundingClientRect()
+
+        const xoffset = evnt.clientX - position.left
+        const yoffset = evnt.clientY - position.top
+
+        function drag(evnt) {
+            win.style.left = (evnt.clientX -xoffset) + "px"
+            win.style.top = (evnt.clientY - yoffset) + "px"
+            win.style.transform = "none"
+        }
+
+        function stopDrag() {
+            document.removeEventListener("mousemove", drag)
+            document.removeEventListener("mouseup", stopDrag)
+        }
+
+        document.addEventListener("mousemove", drag)
+        document.addEventListener("mouseup", stopDrag)
+
+    })
+})

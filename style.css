@@ -157,7 +157,7 @@ body {
 
 .addtask {
     background:rgba(51,51,51,0.4);
-    position:fixed;
+    position:absolute;
     bottom:20px;
     left:42%;
     
@@ -179,7 +179,7 @@ body {
 }
 
 .cleartasks {
-    position:fixed;
+    position:absolute;
     bottom:5%;
     right:10%;
     background:rgba(255,255,255,0.12);
@@ -295,7 +295,7 @@ body {
 
 .check {
     padding:5px;
-    position:fixed;
+    position:absolute;
     left:30%;
     border-radius:16px;
     transition: transform 0.2s ease, border 0.2s ease, background 0.2s ease;
@@ -309,7 +309,7 @@ body {
 
 .deleteicon {
     padding:5px;
-    position:fixed;
+    position:absolute;
     right:40px;
     border-radius:16px;
     transition:transform 0.2s ease, border 0.2s ease, background 0.2s ease;
@@ -320,6 +320,7 @@ body {
     transform:scale(1.1);
     border 1px solid rgba(255,255,255,0.4);
 }
+
 /* States */
 
 .dock.entered {
@@ -362,3 +363,17 @@ body {
 .app.entered.behind {
     opacity:1;
 }
+
+
+/* App Draggability*/
+
+.app-head {
+    cursor:grab;
+    user-select:none;
+}
+
+.app-head:active {
+    cursor:grabbing;
+}
+
+/* Pseudo Elements */
