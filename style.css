@@ -92,7 +92,7 @@ body {
     position:fixed;
     opacity:0;
     font-family: "Poppins", sans-serif;
-    background:rgba(155,155,155,0.8);
+    background:rgba(51,51,51,0.5);
     border: 1px solid rgba(255,255,255,0.6);
     transition: transform 0.2s ease, opacity 0.2s ease, background 0.2s ease;
     padding:10px;
@@ -304,7 +304,7 @@ body {
 .check:hover {
     background:rgba(255,255,255,0.2);
     transform:scale(1.1);
-    border 1px solid rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.4);
 }
 
 .deleteicon {
@@ -318,7 +318,12 @@ body {
 .deleteicon:hover {
     background:rgba(255,255,255,0.2);
     transform:scale(1.1);
-    border 1px solid rgba(255,255,255,0.4);
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+.task-row.completed span {
+    text-decoration:line-through;
+    opacity:0.5;
 }
 
 /* States */
@@ -377,3 +382,287 @@ body {
 }
 
 /* Pseudo Elements */
+
+/* Desktop Clock */
+.desktop-clock {
+    position:fixed;
+    top:35px;
+    right:40px;
+    text-align:right;
+    
+    font-family:"Poppins",sans-serif;
+    padding: 15px 25px;
+    background:rgba(51,51,51,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    border-radius:16px;
+    backdrop-filter:blur(15px);
+    
+    transition:background 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
+}
+
+.desktop-clock:hover {
+    background:rgba(51,51,51,0.4);
+    transform:scale(1.05);
+}
+
+/* Terminal App */
+
+#terminal {
+    width:600px;
+    height: 380px;
+    border-radius:16px;
+    box-sizing:border-box;
+    overflow:hidden;
+
+    display:flex;
+    flex-direction:column;
+}
+
+#terminal .app-head {
+    flex-shrink:0;
+    border-radius:16px;
+}
+
+
+#terminal .body-terminal {
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    overflow:hidden;
+    background:rgba(0,0,0,0.6);
+    color:#eee;
+    height: auto;
+    padding:10px;
+    box-sizing:border-box;
+    font-family:monospace;
+    min-height:0;
+    min-width:0;
+    border-radius:16px;
+}
+
+#terminal .input-section {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    flex-shrink:0;
+    color:#1AED50;
+    font-size:12px;
+}
+
+#terminal .prompt {
+    color:#A54DE0;
+    white-space:nowrap;
+
+}
+
+#terminal .terminal-input {
+    flex:1;
+    background:transparent;
+    border:1px solid rgba(255,255,255,0.2);
+    border-radius:10px;
+    padding:5px;
+    font:inherit;
+    color:#1AED50;
+}
+
+.terminal-head {
+    font-family:monospace;
+}
+
+.terminalapp {
+    background:rgba(0,0,0,0.7);
+}
+
+.terminalapp:hover {
+    background: rgba(0,0,0,0.6);
+}
+
+.output {
+    flex:1;
+    min-height:0;
+    overflow-y:auto;
+}
+
+/* Commands */
+#terminal .output {
+    display:flex;
+    flex-direction:column;
+    gap:16px;
+    padding:8px;
+    text-align:left;
+    
+    font-family:"JetBrains Mono", "Fira Code", monospace;
+    font-size:12px;
+    line-height:1.6;
+
+    flex:1;
+    overflow-y:auto;
+    overflow-x:hidden;
+
+}
+
+#terminal .output > div:not(.input-section) {
+    overflow-wrap:anywhere;
+}
+
+/*Inputs*/
+#terminal .output .typed-cmd {
+    color: #1AED50;
+}
+
+/*Outputs*/
+#terminal .output .cmd-response {
+    color:#b5c9d6;
+    padding-left:12px;
+    white-space:pre;
+}
+
+
+/* Files App */
+
+.files-app {
+    width:700px;
+    height:400px;
+    box-sizing:border-box;
+    overflow:hidden;
+    text-align:left;
+}
+
+.shortcuts-files {
+    display:flex;
+    flex-direction:row;
+    padding:10px;
+    gap:12px;
+    align-items:center;
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius:10px;
+    transform:scale(0.7) translateY(-50px);
+}
+
+.nav {
+    display:flex;
+    flex-direction:row;
+    flex-shrink:0;
+    width:auto;
+}
+
+.shortcuts-files button {
+    display:flex;
+    background:transparent;
+    cursor:pointer;
+    border-radius:8px;
+    padding:8px;
+    border:none;
+    align-items:center;
+    color:inherit;
+    flex-direction:row;
+    justify-content:center;
+    flex-shrink:0;
+    width:auto;
+
+    transition: background 0.2s ease;
+}
+
+.shortcuts-files button:hover {
+    background:rgba(255,255,255,0.12);
+}
+
+.location {
+    display:flex;
+    align-items:center;
+    flex:1;
+    gap:8px;
+    padding: 10px;
+    border-radius:10px;
+    background:rgba(255,255,255,0.08);
+    overflow:hidden;
+}
+
+.path {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+
+    font-family:monospace;
+}
+
+.files-layout {
+    display:flex;
+    height:calc(100%-100px);
+}
+
+.files-sidebar {
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    width:100px;
+    flex-shrink:0;
+    padding: 12px 8px;
+    border-right:1px solid rgba(255,255,255,0.15);
+    transform: translateY(-40px) scale(0.95);
+    background:rgba(255,255,255,0.05);
+    border-radius:16px;
+    border:1px solid rgba(255,255,255,0.2);
+}
+
+.files-sidebar button {
+    display:flex;
+    flex-direction:column;
+    background:transparent;
+    color:inherit;
+    cursor:crosshair;
+    border-radius:8px;
+    border:none;
+    transition:background 0.2s ease;
+}
+
+.files-sidebar button:hover {
+    background:rgba(255,255,255,0.12);
+}
+
+.files-content {
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(85px, 1fr));
+    align-content:start;
+    padding:10px;
+    flex:1;
+    gap:10px;
+    overflow-y:auto;
+}
+
+.file-item {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    gap:8px;
+    min-width:0;
+    padding:12px 5px;
+    cursor:crosshair;
+
+    text-align:center;
+    overflow-wrap:anywhere;
+    border-radius:10px;
+}
+
+.file-item i{
+    width:32px;
+    height:32px;
+    color:#8bbcff;
+
+}
+
+.file-item:hover {
+    background:rgba(255,255,255,0.12);
+}
+
+.abt-madrigal {
+    padding:20px;
+    color:white;
+}
+
+.abt-head {
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    padding:10px;
+}

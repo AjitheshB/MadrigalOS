@@ -20,6 +20,13 @@
       <h1>MadrigalOS</h1>
       <p>Productivity peaking time?</p>
     </div>
+    
+    <!--Desktop Clock-->
+    <div class="desktop-clock">
+      <h1 class="time">00:00:00</h1>
+      <p class="date">Loading Date...</p>
+    </div>
+
 
     <!--Bottom dock-->
     <div class="dock">
@@ -31,15 +38,15 @@
         <i data-lucide="list-checks"></i>
       </div>
       
-      <div class="dock-item">
+      <div class="dock-item" data-app="calendar">
         <i data-lucide="calendar-days"></i>
       </div>
 
-      <div class="dock-item">
+      <div class="dock-item" data-app="files">
         <i data-lucide="folder"></i>
       </div>
 
-      <div class="dock-item">
+      <div class="dock-item" data-app="settings">
         <i data-lucide="settings"></i>
       </div>
     </div>
@@ -84,12 +91,145 @@
     </div>
 
     <!--Terminal App-->
-    <div class="app" id="terminal">
-      <div class="app-head">
+    <div class="app terminalapp" id="terminal">
+      <div class="app-head terminal-head">
         <h1>Terminal</h1>
         <button class="close">
           <i data-lucide="x"></i>
         </button>
+      </div>
+
+      <div class="body-terminal">
+          <div class="output"></div>
+
+          <div class="input-section">
+            <span class="prompt">ajithesh@madrigalOS:~$</span>
+            <input
+              type="text"
+              class="terminal-input"
+              placeholder="Command goes here..."
+              spellcheck="false"
+              aria-label="Terminal Command"
+              autocapitalize="off"
+            >
+        </div>
+      </div>
+    </div>
+
+    <!--Calendar App-->
+    <div class="app" id="calendar">
+      <div class="app-head">
+        <h1>Calendar</h1>
+        <button class="close">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+    </div>
+
+    <!--Files App-->
+    <div class="app files-app" id="files">
+      <div class="app-head">
+        <h1>Files</h1>
+        <button class="close">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      <!-- Nav Bar-->
+        <div class="shortcuts-files">
+          <div class="nav">
+            <button class="files-back" type="button" title="Back">
+              <i data-lucide="arrow-left"></i>
+            </button>
+            <button class="files-up" title="Parent" type="button">
+              <i data-lucide="arrow-up"></i>
+            </button>
+          </div>
+
+          <div class="location">
+            <i data-lucide="folder"></i>
+            <span class="path">/home/ajithesh/</span>
+          </div>
+
+          <button class="files-home" title="Home" type="button">
+            <i data-lucide="house"></i>
+          </button>
+        </div>
+
+        <!--File Mngr-->
+        <div class="files-layout">
+          
+        <div class="files-sidebar">
+          <button data-path="/home/ajithesh">
+            <i data-lucide="house"></i>
+          </button>
+
+          <button data-path="/home/ajithesh/Desktop">
+            <i data-lucide="monitor"></i> Desktop
+          </button>
+
+          <button data-path="/home/ajithesh/Documents">
+            <i data-lucide="folder-open"></i> Documents
+          </button>
+
+          <button data-path="/home/ajithesh/Downloads">
+            <i data-lucide="download"></i> Downloads
+          </button>
+
+          <button data-path="/home/ajithesh/Projects">
+            <i data-lucide="code"></i> Projects
+          </button>
+        </div>
+        <div class="files-content">
+          <!--Javascript-->
+        </div>
+      </div>
+    </div>
+
+    <!--Settings App-->
+    <div class="app" id="settings">
+      <div class="app-head">
+        <h1>Settings</h1>
+        <button class="close">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+      
+      <!--Sidebar-->
+      <div class="settings-sidebar">
+        <button class="settings-abt">
+          <i data-lucide="info"></i>
+        </button>
+
+        <button class="settings-settings">
+          <i data-lucide="cog"></i>
+        </button>
+      </div>
+
+      <!--About-->
+      <div class="abt-madrigal">
+      <div class="abt-head">
+        <i data-lucide="square-terminal"></i>
+        <h1>MadrigalOS</h1>
+        <p>Version 1.0.2</p>
+      </div>
+
+      <div class="abt-info">
+        <div class="abt row">
+          <span>Operating System</span>
+          <span>MadrigalOS</span>
+        </div>
+
+        <div class="abt-row">
+          <span>Version</span>
+          <span>1.0.2</span>
+        </div>
+
+        <div class="abt-row">
+          <i data-lucide="braces"></i>
+          <span>Developer</span>
+          <span>Ajithesh Balaji</span>
+        </div>
+      </div>
       </div>
     </div>
 
