@@ -5,8 +5,7 @@
 
 <img width="1329" height="743" alt="screen2" src="https://github.com/user-attachments/assets/88a61fc8-7a3d-4213-aa3e-949b0f834648" />
 
-<img width="1335" height="749" alt="madrigal1" src="https://github.com/user-attachments/assets/cf08a491-6ced-485f-b122-
-dadfa1e4d343" />
+<img width="1335" height="749" alt="madrigal1" src="https://github.com/user-attachments/assets/acc237f0-ba58-49de-8ff5-eaf2cbaceb55" />
 
 <img width="1332" height="740" alt="terminal 4" src="https://github.com/user-attachments/assets/9dc87969-7bb2-4a1b-b8c6-7e2c40991586" />
 
