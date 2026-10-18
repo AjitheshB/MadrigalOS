@@ -2,6 +2,7 @@
 
 ### My very own personal OS designed for productivity. Still a work in progress
 <img width="1349" height="752" alt="pic1" src="https://github.com/user-attachments/assets/6f51de10-1635-43ef-84b6-b8a399ef92ed" />
+
 <img width="1329" height="743" alt="screen2" src="https://github.com/user-attachments/assets/88a61fc8-7a3d-4213-aa3e-949b0f834648" />
 
 <img width="1335" height="749" alt="madrigal1" src="https://github.com/user-attachments/assets/cf08a491-6ced-485f-b122-
