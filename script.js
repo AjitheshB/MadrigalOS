@@ -449,3 +449,25 @@ function renderFiles() {
     lucide.createIcons()
 }
 
+// Settings App
+
+const setting = document.querySelector(".settings-settings")
+const about = document.querySelector(".settings-abt")
+const developer = document.querySelector(".developer")
+const abt = document.querySelector(".abt-madrigal")
+
+about.classList.add("entered")
+
+setting.addEventListener("click", function() {
+    setting.classList.add("entered")
+    developer.classList.add("entered")
+    abt.classList.remove("entered")
+    about.classList.remove("entered")
+})
+
+about.addEventListener("click", function() {
+    about.classList.add("entered")
+    abt.classList.add("entered")
+    developer.classList.remove("entered")
+    setting.classList.remove("entered")
+})
