@@ -184,6 +184,7 @@ saveAddTask.addEventListener("click", () => {
 
     taskitem.append(check, taskText, deleteIcon)
     taskList.appendChild(taskitem)
+    emptyMessage()
 
     lucide.createIcons();
 
@@ -194,6 +195,7 @@ saveAddTask.addEventListener("click", () => {
 
 taskClear.addEventListener("click", () => {
     taskList.innerHTML = ""
+    emptyMessage()
 })
 
 taskList.addEventListener("click", (evnt) => {
@@ -219,6 +221,7 @@ taskList.addEventListener("click", (evnt) => {
 
     const taskitem = deleteIcon.closest(".task-row")
     taskitem.remove()
+    emptyMessage()
 })
 
 // App Layering
@@ -575,3 +578,28 @@ document.querySelector(".browser-fwd").addEventListener("click", () => {
 document.querySelector(".browser-refresh").addEventListener("click", () => {
     browserFrame.contentWindow.location.reload()
 })
+
+// Maximise Wins
+
+const maxwin = document.querySelectorAll(".maximize")
+
+maxwin.forEach(button => {
+    button.addEventListener("click", () => {
+        const maxApp = button.closest(".app")
+
+        maxApp.classList.toggle("maximized")
+
+        lucide.createIcons()
+    })
+})
+
+
+const empty = document.querySelector(".empty")
+
+function emptyMessage() {
+    empty.style.display = taskList.querySelector(".task-row")
+    ? "none"
+    : "block"
+}
+
+emptyMessage()
