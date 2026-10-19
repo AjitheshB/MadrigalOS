@@ -13,7 +13,18 @@ Please note that currently, the Calendar app and the Settings app are not functi
 
 <img width="1339" height="739" alt="files 4" src="https://github.com/user-attachments/assets/01afab93-adfa-48b5-9bc5-5b9e7d475913" />
 
+---
 
+### About MadrigalOS
+
+MadrigalOS is a productivity prioritizing OS that I built for HackClub Terra. With 15 hours of code in HTML, CSS and Javascript, it is just a simple webOS in progress right now.
+
+Taking inspiration from my shockingly high screen time, I built this to hopefully use when I want to focus to reduce my doom-scrolling time...
+
+---
+
+### How to use
+You can access the web application at: https://madrigal-os.vercel.app/
 
 ---
 
