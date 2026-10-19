@@ -603,3 +603,45 @@ function emptyMessage() {
 }
 
 emptyMessage()
+
+// WALLPAPER COLLECTION
+
+const wallpapers = [
+
+    {name:"Default Green Mountains", file:"background.jpg"},
+    {name: "Skyline", file:"airplane skyline.jpg"},
+    {name: "Aurora Sky", file:"aurora sky.jpg"},
+    {name: "Fly Dark", file:"fly.png"},
+    {name:"Momonoke", file:"momonoke.png"},
+    {name:"Snow surfing", file:"surf snow.jpg"},
+    {name:"Train Skyline", file:"trainlines.jpg"},
+    {name:"Ghost of Yotei", file:"wallpaper.webp"},
+    {name:"Anime Warrior", file:"warrior.jpg"},
+]
+
+// Wallpaper - Settings
+
+const wallGrid = document.querySelector(".wallpapers")
+
+wallpapers.forEach(function(wallpaper) {
+    const option = document.createElement("button")
+
+    option.classList.add("wallpaper-option")
+
+    option.innerHTML = `
+    <img src ="wallpapers/${wallpaper.file}" alt="${wallpaper.name}">
+    <span>${wallpaper.name}</span>
+    `
+
+    option.addEventListener("click", () => {
+        document.body.style.backgroundImage = `url("./wallpapers/${wallpaper.file}")`
+
+        document.querySelectorAll(".wallpaper-option").forEach(function(item) {
+            item.classList.remove("seleted")
+        })
+
+        option.classList.add("selected")
+    })
+
+    wallGrid.appendChild(option)
+})

@@ -19,6 +19,7 @@ body {
     background-image:url("./background.jpg");
     background-size:cover;
     background-position:center;
+    background-repeat:no-repeat;
 }
 
 .intro {
@@ -786,7 +787,7 @@ body {
     display:none;
     position:absolute;
     top:140px;
-    left:250px;
+    left:130px;
     overflow-y:hidden;
 
     transition:opacity 0.2s ease;
@@ -926,4 +927,49 @@ body {
 
 .empty.display {
     display:block;
+}
+
+/* Wallpapers */
+
+#settings .wallpapers {
+    display:grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap:12px;
+    width:100%;
+    font-family:monospace;
+    background:transparent;
+}
+
+#settings .option {
+    display:flex;
+    flex-direction:column;
+    width:100%;
+    min-width:0;
+    padding:8px;
+    box-sizing:border-box;
+}
+
+#settings .wallpaper-option img {
+    width:100%;
+    height:100px;
+    object-fit:cover;
+    display:block;
+    border-radius:12px;
+    background:transparent;
+}
+
+#settings .wallpaper-option {
+    background:transparent;
+    border-radius:20px;
+    color:white;
+    font-family:monospace;
+    padding:10px;
+    border:none;
+
+    transition:border 0.2s ease, background 0.2s ease;
+}
+
+#settings .wallpaper-option:hover {
+    background:rgba(255,255,255,0.1);
+    border:1px solid;
 }
