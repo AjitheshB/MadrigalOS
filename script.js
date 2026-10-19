@@ -63,6 +63,26 @@ closeButton.forEach(function(button) {
     })
 })
 
+// Browser App
+const browser = document.querySelector('[data-app="browser"]')
+const browserApp = document.querySelector("#browser")
+
+browser.addEventListener("click", function() {
+    browserApp.classList.toggle("entered")
+    browserURL.value = "wikipedia.com"
+    openSite(browserURL.value)
+
+    if (browserApp.classList.contains("entered")) {
+        topApp = browserApp
+    } else {
+        topApp = document.querySelector(".app.entered")
+    }
+
+    appLayers()
+
+})
+
+
 // Terminal app
 terminal.addEventListener("click", function() {
     terminalApp.classList.toggle("entered")
@@ -470,4 +490,88 @@ about.addEventListener("click", function() {
     abt.classList.add("entered")
     developer.classList.remove("entered")
     setting.classList.remove("entered")
+})
+
+// Browser App Logic
+
+const browserURL = document.querySelector(".browser-url");
+const browserGo = document.querySelector(".browser-go")
+const browserContent = document.querySelector(".browser-contents")
+const browserFrame = document.querySelector(".browser-frame")
+
+// Search icon
+function openSite(input) {
+    let address = input.trim()
+
+    if (!address) return
+
+    if (address.includes (" ") || !address.includes(".")) {
+        address = "https://www.google.com/search?q=" + encodeURIComponent(address)
+    } else if (!address.startsWith("http://") && !address.startsWith("https://")) {
+        address= "https://" + address
+    }
+
+    document.querySelector(".browser-frame").src = address
+}
+
+// Toolbar
+
+browserGo.addEventListener("click", () => {
+    openSite(browserURL.value)
+})
+
+// Fallbacks
+
+const translateBtn = document.querySelector(".browser-translate")
+const waybackBtn = document.querySelector(".browser-wayback")
+const externalBtn = document.querySelector(".browser-external")
+
+
+// External
+
+externalBtn.addEventListener("click", () => {
+    let address = browserURL.value.trim()
+
+    if (!address) return
+
+    if (address.includes(" ") || !address.includes(".")) {
+        address = "https://www.google.com/search?q=" + encodeURIComponent(address)
+
+    } else if (!address.startsWith("https://") && !address.startsWith("http://")) {
+        address = "https://" + address
+    }
+
+    window.open(address,"_blank", "noopener, noreferrer")
+})
+
+// SHORTCUTTTSSS WAWAAWWAW!!!!
+
+const shortcuts = document.querySelectorAll(".browser-shortcuts button")
+
+shortcuts.forEach(buttons => {
+    buttons.addEventListener("click", () => {
+        const url = buttons.dataset.url
+        
+        browserURL.value = url
+        openSite(browserURL.value)
+    })
+})
+
+// TOOLBARR
+
+//Backk
+document.querySelector(".browser-back").addEventListener("click", () => {
+    browserFrame.contentWindow.history.back()
+})
+
+// Fwdd
+document.querySelector(".browser-fwd").addEventListener("click", () => {
+    browserFrame.contentWindow.history.forward()
+
+})
+
+// refresh
+
+document.querySelector(".browser-refresh").addEventListener("click", () => {
+    browserFrame.contentWindow.location.reload()
 })

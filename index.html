@@ -243,6 +243,76 @@
       </div>
     </div>
 
+    <!--Browser App!-->
+    <div class="app browser-app" id="browser">
+
+      <div class="app-head">
+        <h1>Browser</h1>
+        <button class="close">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <!--Toolbar!!!-->
+      <div class="browser-toolbar">
+        <button class="browser-back" title="Back">
+          <i data-lucide="arrow-left"></i>
+        </button>
+
+        <button class="browser-fwd" title="Forward">
+          <i data-lucide="arrow-right"></i>
+        </button>
+
+        <button class="browser-refresh" title="Refresh">
+          <i data-lucide="rotate-cw"></i>
+        </button>
+
+        <input
+          class="browser-url"
+          type="text"
+          placeholder="search here"
+        >
+
+        <button class="browser-go">
+          <i data-lucide="search"></i>
+        </button>
+      </div>
+
+      <!--Shortcuts-->
+      <div class="browser-shortcuts">
+        <button data-url="https://www.youtube.com">
+          <i data-lucide="play"></i>
+        </button>
+
+        <button data-url="https://www.wikipedia.org">
+          <i data-lucide="book-open"></i>
+        </button>
+
+        <button data-url="https://github.com">
+          <i data-lucide="globe"></i>
+        </button>
+
+      </div>
+
+      <!--Browser Content-->
+      <div class="browser-contents">
+        <iframe
+          class="browser-frame"
+          title="Madrigal Browser"
+          src="about:blank"
+        ></iframe>
+
+        <div class="fallback">
+          <p>Can't load this website?</p>
+          <p>This website may block embedded browsing</p>
+          <i data-lucide="ban"></i>
+
+          <button class="browser-external">Open in new tab</button>
+        </div>
+      </div>
+
+    </div>
+
     <!--App icon library!-->
     <script src="https://unpkg.com/lucide@latest"></script>
 
