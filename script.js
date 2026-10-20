@@ -106,6 +106,28 @@ terminal.addEventListener("click", function() {
     }
 )
 
+
+// About Me App
+const aboutme = document.querySelector('[data-app="about-me"]')
+const aboutApp = document.querySelector("#about-me")
+
+aboutme .addEventListener("click", function() {
+    aboutApp.classList.toggle("entered")
+
+    document.querySelector("#about-me").scrollTop = 0
+
+    if (aboutApp.classList.contains("entered")) {
+        topApp = aboutApp
+        showNotif("About-Me app launched", "Coming soon!")
+    } else {
+        topApp = document.querySelector(".app.entered")
+        showNotif("About-Me app closed", "MadrigalOS System")
+    }
+
+    appLayers()
+
+})
+
 // Calendar App
 const calendar = document.querySelector('[data-app="calendar"]')
 const calendarApp = document.querySelector("#calendar")
