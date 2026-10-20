@@ -48,8 +48,10 @@ tasks.addEventListener("click", function() {
 
     if (app.classList.contains("entered")) {
         topApp = app
+        showNotif("Tasks app launched", "MadrigalOS System")
     } else {
         topApp = document.querySelector(".app.entered")
+        showNotif("Tasks app closed", "MadrigalOS System")
     }
 
     appLayers()
@@ -71,11 +73,14 @@ browser.addEventListener("click", function() {
     browserApp.classList.toggle("entered")
     browserURL.value = "wikipedia.com"
     openSite(browserURL.value)
+    
 
     if (browserApp.classList.contains("entered")) {
         topApp = browserApp
+        showNotif("Browser app launched", "MadrigalOS System")
     } else {
         topApp = document.querySelector(".app.entered")
+        showNotif("Browser app closed", "MadrigalOS System")
     }
 
     appLayers()
@@ -90,8 +95,10 @@ terminal.addEventListener("click", function() {
     if (terminalApp.classList.contains("entered") && terminalOut.children.length === 0)  {
         showFastFetch()
         topApp = terminalApp
+        showNotif("Terminal app launched", "Use 'help' for available commands!")
     } else {
         topApp = document.querySelector(".app.entered")
+        showNotif("Terminal app closed", "MadrigalOS System")
     }
 
     appLayers()
@@ -108,8 +115,10 @@ calendar.addEventListener("click", function() {
 
     if (calendarApp.classList.contains("entered")) {
         topApp = calendarApp
+        showNotif("Calendar app launched", "Coming soon!")
     } else {
         topApp = document.querySelector(".app.entered")
+        showNotif("Calendar app closed", "MadrigalOS!")
     }
 
     appLayers()
@@ -125,8 +134,11 @@ files.addEventListener("click", function() {
     
     if (filesApp.classList.contains("entered")) {
         topApp = filesApp
+        showNotif("Files app launched", "Use the terminal app to cd into folders")
     } else {
         topApp = document.querySelector(".app.entered")
+
+    showNotif("Files app closed","MadrigalOS System")
     }
 
     appLayers()
@@ -141,6 +153,7 @@ const settingsApp = document.querySelector("#settings")
 settings.addEventListener("click", function() {
     settingsApp.classList.toggle("entered")
     document.querySelector("#settings").scrollTop = 0
+    showNotif("Settings app launched!","Toggle custom wallpapers")
 
     if (settingsApp.classList.contains("entered")) {
         abt.classList.add("entered")
@@ -667,3 +680,45 @@ if (savedWallpaper) {
     document.body.style.backgroundImage =
     `url("./wallpapers/${savedWallpaper}")`
 }
+
+const notifContainer = document.querySelector(".notification-container")
+
+function showNotif(title, message) {
+    const notif = document.createElement("div")
+    notif.classList.add("notification")
+
+    const icon = document.createElement("i")
+    icon.setAttribute("data-lucide", "bell")
+    icon.classList.add("notification-icon")
+
+    const content = document.createElement("div")
+    content.classList.add("notification-content")
+
+    const heading = document.createElement("p")
+    heading.classList.add("notification-title")
+    heading.textContent = title
+    
+    const desc = document.createElement("p")
+    desc.classList.add("notification-message")
+    desc.textContent = message
+
+    const close = document.createElement("button")
+    close.classList.add("notification-close")
+    close.innerHTML = '<i data-lucide="x"></i>'
+
+    content.append(heading,desc)
+    notif.append(icon,content,close)
+    notifContainer.append(notif)
+
+    lucide.createIcons()
+
+    close.addEventListener("click", () => {
+        notif.remove()
+    })
+
+    setTimeout(() => {
+        notif.remove()
+    }, 5000)
+}
+
+showNotif("MadrigalOS", "Notifications are working!")
