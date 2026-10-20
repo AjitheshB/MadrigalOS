@@ -140,8 +140,10 @@ const settingsApp = document.querySelector("#settings")
 
 settings.addEventListener("click", function() {
     settingsApp.classList.toggle("entered")
+    document.querySelector("#settings").scrollTop = 0
 
     if (settingsApp.classList.contains("entered")) {
+        abt.classList.add("entered")
         topApp = settingsApp
     } else {
         topApp = document.querySelector(".app.entered")
@@ -608,20 +610,28 @@ emptyMessage()
 
 const wallpapers = [
 
-    {name:"Default Green Mountains", file:"background.jpg"},
-    {name: "Skyline", file:"airplane skyline.jpg"},
-    {name: "Aurora Sky", file:"aurora sky.jpg"},
-    {name: "Fly Dark", file:"fly.png"},
-    {name:"Momonoke", file:"momonoke.png"},
-    {name:"Snow surfing", file:"surf snow.jpg"},
-    {name:"Train Skyline", file:"trainlines.jpg"},
-    {name:"Ghost of Yotei", file:"wallpaper.webp"},
-    {name:"Anime Warrior", file:"warrior.jpg"},
+    {name:"Default Green Mountains", file:"background.jpg", theme:"dark"},
+    {name:"Dystopian Anime", file:"anime dark.jpg", theme:"dark"},
+    {name: "Skyline", file:"airplane skyline.jpg", theme:"light"},
+    {name: "Jujutsu Kaisen", file:"jjk.jpeg", theme:"dark"},
+    {name:"One Piece", file:"one-piece.webp", theme:"dark"},
+    {name: "Aurora Sky", file:"aurora sky.jpg", theme:"dark"},
+    {name: "Fly Dark", file:"fly.png", theme:"dark"},
+    {name:"Momonoke", file:"momonoke.jpg", theme:"dark"},
+    {name:"Snow surfing", file:"surf snow.jpg", theme:"light"},
+    {name:"Train Skyline", file:"trainlines.jpg", theme:"dark"},
+    {name:"Ghost of Yotei", file:"wallpaper.webp", theme:"dark"},
+    {name:"Anime Warrior", file:"warrior.jpg", theme:"light"},
+    {name:"Night Sky", file:"night sky.jpg", theme:"dark"},
+    {name: "Rainy Day", file:"rainy day.png", theme:"dark"},
+    {name:"Anime", file:"anime man.png", theme:"dark"},
+    {name:"Anime Warrior", file:"anime warrior.jpeg", theme:"dark"},
 ]
 
 // Wallpaper - Settings
 
 const wallGrid = document.querySelector(".wallpapers")
+
 
 wallpapers.forEach(function(wallpaper) {
     const option = document.createElement("button")
@@ -635,9 +645,14 @@ wallpapers.forEach(function(wallpaper) {
 
     option.addEventListener("click", () => {
         document.body.style.backgroundImage = `url("./wallpapers/${wallpaper.file}")`
+        localStorage.setItem("selectedWallpaper", wallpaper.file)
+        document.body.classList.toggle(
+            "light-wallpaper",
+            wallpaper.theme === "light"
+        )
 
         document.querySelectorAll(".wallpaper-option").forEach(function(item) {
-            item.classList.remove("seleted")
+            item.classList.remove("selected")
         })
 
         option.classList.add("selected")
@@ -645,3 +660,10 @@ wallpapers.forEach(function(wallpaper) {
 
     wallGrid.appendChild(option)
 })
+
+const savedWallpaper = localStorage.getItem("selectedWallpaper")
+
+if (savedWallpaper) {
+    document.body.style.backgroundImage =
+    `url("./wallpapers/${savedWallpaper}")`
+}
