@@ -1058,3 +1058,7 @@ body.light-wallpaper .dock {
         transform:translateX(0)
     }
 }
+
+.app:not(.entered) {
+    pointer-events:none;
+}

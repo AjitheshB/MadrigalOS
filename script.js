@@ -153,13 +153,17 @@ const settingsApp = document.querySelector("#settings")
 settings.addEventListener("click", function() {
     settingsApp.classList.toggle("entered")
     document.querySelector("#settings").scrollTop = 0
-    showNotif("Settings app launched!","Toggle custom wallpapers")
 
     if (settingsApp.classList.contains("entered")) {
         abt.classList.add("entered")
+        about.classList.add("entered")
+        developer.classList.remove("entered")
+        setting.classList.remove("entered")
         topApp = settingsApp
+        showNotif("Settings app launched!","Toggle custom wallpapers")
     } else {
         topApp = document.querySelector(".app.entered")
+        showNotif("Settings app closed!","MadrigalOS System")
     }
 
     appLayers()
@@ -200,6 +204,7 @@ saveAddTask.addEventListener("click", () => {
     taskitem.append(check, taskText, deleteIcon)
     taskList.appendChild(taskitem)
     emptyMessage()
+    showNotif("Task added", taskName)
 
     lucide.createIcons();
 
