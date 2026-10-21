@@ -46,6 +46,10 @@
         <i data-lucide="list-checks"></i>
       </div>
 
+      <div class="dock-item" data-app="calculator">
+        <i data-lucide="calculator"></i>
+      </div>
+
       <div class="dock-item" data-app="files">
         <i data-lucide="folder"></i>
       </div>
@@ -168,18 +172,6 @@
       </div>
     </div>
 
-    <!--Calendar App-->
-    <div class="app" id="calendar">
-      <div class="app-head">
-        <h1>Calendar</h1>
-        <button class="maximize">
-          <i data-lucide="maximize-2"></i>
-        </button>
-        <button class="close">
-          <i data-lucide="x"></i>
-        </button>
-      </div>
-    </div>
 
     <!--Files App-->
     <div class="app files-app" id="files">
@@ -407,6 +399,55 @@
       </div>
      </div>
 
+     <!--Calculator!-->
+    <div class="app calculator-app" id="calculator">
+      <div class="app-head work">
+        <h1>Calculator</h1>
+        <p>Currently a work in progress</p>
+        <p>Not functional yet!</p>
+        <button class="maximize">
+          <i data-lucide="maximize-2"></i>
+        </button>
+        <button class="close">
+          <i data-lucide="x"></i>
+        </button>
+      </div>
+
+      <div class="calc-display">
+        <div class="calc-expression" id ="calc-expression"></div>
+        <div class="calc-result" id="calc-result">0</div>
+      </div>
+
+      <div class="calc-buttons">
+        <button data-action="clear">AC</button>
+        <button data-action="sign">+/-</button>
+        <button data-action="percent">%</button>
+        <button data-operator="/" class="calc-operator">÷</button>
+
+        <button data-number="7">7</button>
+        <button data-number="8">8</button>
+        <button data-number="9">9</button>
+        <button data-operator="*" class="calc-operator">x</button>
+
+        <button data-number="4">4</button>
+        <button data-number="5">5</button>
+        <button data-number="6">6</button>
+        <button data-operator="-" class="calc-operator">-</button>
+
+        <button data-number="1">1</button>
+        <button data-number="2">2</button>
+        <button data-number="3">3</button>
+        <button data-operator="+" class="calc-operator">+</button>
+
+        <button data-action="zero">0</button>
+        <button data-action="deci">.</button>
+        <button data-action="back">del</button>
+        <button data-operator="equals" class="calc-equals">=</button>
+
+
+
+      </div>
+    </div>
 
 
     <!--App icon library!-->

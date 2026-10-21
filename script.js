@@ -810,3 +810,63 @@ const esc = document.querySelector(".spotlight-shortcut")
 esc.addEventListener("click", () => {
     closeSpotlight()
 })
+
+// Calc app
+
+const calc = document.querySelector('[data-app="calculator"]')
+const calcApp = document.querySelector("#calculator")
+
+calc.addEventListener("click", function() {
+    calcApp.classList.toggle("entered")
+
+    if (app.classList.contains("entered")) {
+        topApp = calcApp
+        showNotif("Calculator app launched", "MadrigalOS System")
+    } else {
+        topApp = document.querySelector(".app.entered")
+        showNotif("Calculator app closed", "MadrigalOS System")
+    }
+
+    appLayers()
+    }
+)
+
+// Calc state
+const calcResult = document.querySelector("#calc-result")
+const calcExpression = document.querySelector("#calc-expression")
+const calcBtns = document.querySelector(".calc-buttons")
+
+let currentNum = 0
+let prevNum = null;
+let currentOperator = null;
+let resetDisplay = false;
+
+function updCalc() {
+    calcResult.textContent = currentNum
+}
+
+calcBtns.addEventListener("click", function(event) {
+    const btn = event.target.closest("button")
+
+    if (!btn) return
+
+    if (btn.dataset.number !== undefined) {
+        if (currentNum === "0" || resetDisplay) {
+            currentNum = btn.dataset.number
+            resetDisplay = false
+        } else {
+            currentNum += btn.dataset.number
+        }
+
+        updCalc()
+    }
+
+    if (btn.dataset.operator !== undefined) {
+        prevNum = Number(currentNum)
+        currentOperator = btn.dataset.operator
+        resetDisplay = true
+
+        calcExpression.textContent = 
+            prevNum + " " + btn.textContent
+    }
+})
