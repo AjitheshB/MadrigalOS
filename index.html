@@ -45,10 +45,6 @@
       <div class="dock-item" data-app="tasks">
         <i data-lucide="list-checks"></i>
       </div>
-      
-      <div class="dock-item" data-app="calendar">
-        <i data-lucide="calendar-days"></i>
-      </div>
 
       <div class="dock-item" data-app="files">
         <i data-lucide="folder"></i>
@@ -378,7 +374,7 @@
 
         <div class="fallback">
           <p>Can't load this website?</p>
-          <p>This website may block embedded browsing</p>
+          <p>This website may block embedded browsing, sadly</p>
           <i data-lucide="ban"></i>
 
           <button class="browser-external">Open in new tab</button>
@@ -389,6 +385,29 @@
 
     <!-- Notifications-->
      <div class="notification-container"></div>
+
+    <!-- Spotlight Search-->
+     <div class="spotlight" id="spotlight">
+      <div class="spotlight-search">
+        <div class="spotlight-head">
+          <i data-lucide="search"></i>
+          <p> Spotlight Search</p>
+        </div>
+        <input
+          type="text"
+          id="spotlight-input"
+          placeholder="Search apps here..."
+          autocomplete="off"
+        >
+        <span class="spotlight-shortcut">ESC</span>
+      </div>
+
+      <div class="spotlight-results" id="spotlight-results">
+        <p class="spotlight-hint">Start typing to search</p>
+      </div>
+     </div>
+
+
 
     <!--App icon library!-->
     <script src="https://unpkg.com/lucide@latest"></script>
