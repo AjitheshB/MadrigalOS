@@ -2,7 +2,17 @@
 
 ### My very own personal OS designed for productivity. Still a work in progress
 
-Please note that currently, the Calendar app and the Settings app are not functional.
+Please note that currently, the Calculator app is not functional.
+<img width="1366" height="768" alt="snip1" src="https://github.com/user-attachments/assets/0b0bfc37-9a8e-480a-871d-cc75ead48918" />
+
+
+<img width="1366" height="768" alt="snip2" src="https://github.com/user-attachments/assets/9fe4c832-c99a-4f7a-a90c-845c2f1b5cda" />
+
+
+<img width="1366" height="768" alt="snip3" src="https://github.com/user-attachments/assets/0b8fc433-20ef-4d97-a909-fded1b8ec156" />
+
+
+
 <img width="1349" height="752" alt="pic1" src="https://github.com/user-attachments/assets/6f51de10-1635-43ef-84b6-b8a399ef92ed" />
 
 <img width="1329" height="743" alt="screen2" src="https://github.com/user-attachments/assets/88a61fc8-7a3d-4213-aa3e-949b0f834648" />
@@ -24,7 +34,7 @@ Taking inspiration from my shockingly high screen time, I built this to hopefull
 ---
 
 ### How to use
-You can access the web application at: https://madrigal-os.vercel.app/
+You can access the web application at: https://madrigalos.vercel.app/
 
 ---
 
@@ -32,7 +42,7 @@ This personal OS makes use of HTML, CSS and JS to create an interactive operatin
 
 Built using CSS States for functionality
 
-At this stage, all apps work except for the calendar and settings app. Files app uses mock files
+At this stage, all apps work except for the calculator app. Files app uses mock files
 
 ###### Built for HackClub Terra
 
