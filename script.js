@@ -128,25 +128,6 @@ aboutme .addEventListener("click", function() {
 
 })
 
-// Calendar App
-const calendar = document.querySelector('[data-app="calendar"]')
-const calendarApp = document.querySelector("#calendar")
-
-calendar.addEventListener("click", function() {
-    calendarApp.classList.toggle("entered")
-
-    if (calendarApp.classList.contains("entered")) {
-        topApp = calendarApp
-        showNotif("Calendar app launched", "Coming soon!")
-    } else {
-        topApp = document.querySelector(".app.entered")
-        showNotif("Calendar app closed", "MadrigalOS!")
-    }
-
-    appLayers()
-
-})
-
 // Files App
 const files = document.querySelector('[data-app="files"]')
 const filesApp = document.querySelector("#files")
@@ -748,4 +729,84 @@ function showNotif(title, message) {
     }, 5000)
 }
 
-showNotif("MadrigalOS", "Notifications are working!")
+showNotif("Welcome to MadrigalOS", "MadrigalOS System")
+
+
+// SPOTLIGHT SEARCHHH
+const spotlight = document.querySelector("#spotlight")
+const spotlightInput = document.querySelector("#spotlight-input")
+
+function openSpotlight() {
+    spotlight.classList.add("open")
+    spotlightInput.focus()
+}
+
+function closeSpotlight() {
+    spotlight.classList.remove("open")
+    spotlightInput.value = ""
+}
+
+document.addEventListener("keydown", function(event) {
+    if (event.key === "Escape") {
+        closeSpotlight()
+    }
+
+    if (event.metaKey && event.code === "Space") {
+        if (spotlight.classList.contains("open")) {
+            closeSpotlight()
+        } else {
+            openSpotlight()
+        }
+    }
+})
+
+const spotlightApps = [
+    {name:"Terminal", icon:"square-terminal", selector: '[data-app="terminal"]'},
+    {name:"Tasks", icon:"check-square", selector: '[data-app="tasks"]'},
+    {name:"Files", icon:"folder", selector: '[data-app="files"]'},
+    {name:"Browser", icon:"globe", selector: '[data-app="browser"]'},
+    {name:"Settings", icon:"cog", selector: '[data-app="settings"]'},
+    {name:"About Me", icon:"user-round", selector: '[data-app="about-me"]'}
+]
+
+const spotlightResults = document.querySelector("#spotlight-results")
+let spotlightMatches = []
+
+spotlightInput.addEventListener("input", () => {
+    const query = spotlightInput.value.toLowerCase().trim()
+
+    const matches = spotlightApps.filter(function(app) {
+        return app.name.toLowerCase().includes(query)
+    })
+    spotlightMatches = matches
+
+    spotlightResults.innerHTML = ""
+
+    if (matches.length === 0) {
+        spotlightResults.innerHTML = 
+            `<p class="spotlight-hint"> No apps found :( </p>`
+        return
+    }
+
+    matches.forEach(function(app) {
+        const result = document.createElement("div")
+        result.classList.add("spotlight-result")
+        result.textContent = app.name
+        
+        result.addEventListener("click", () => {
+            const appButton = document.querySelector(app.selector)
+
+            if (appButton) {
+                closeSpotlight()
+                appButton.click()
+            }
+        })
+        spotlightResults.appendChild(result)
+    })
+})
+
+const esc = document.querySelector(".spotlight-shortcut")
+
+esc.addEventListener("click", () => {
+    closeSpotlight()
+})
